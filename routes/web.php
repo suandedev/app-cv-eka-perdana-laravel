@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return view('components.main');
+    return view('components.dashboard');
 });
