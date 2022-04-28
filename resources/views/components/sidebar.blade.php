@@ -9,7 +9,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <x-nav-item-dashboard icon="fas fa-fw fa-tachometer-alt" href="#" title="Dashboard"/>
+    <x-nav-item-dashboard icon="fas fa-fw fa-tachometer-alt" href="#" title="Dashboard" active="active"/>
 
     <!-- Divider -->
     <hr class="sidebar-divider">

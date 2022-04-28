@@ -4,21 +4,18 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class NavItemDashboard extends Component
+class ImgProfile extends Component
 {
-    public $title, $icon, $href, $active;
+    public $src;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title, $icon, $href, $active)
+    public function __construct($src)
     {
         //
-        $this->title = $title;
-        $this->icon = $icon;
-        $this->href = $href;
-        $this->active = $active;
+        $this->src = $src;
     }
 
     /**
@@ -28,6 +25,6 @@ class NavItemDashboard extends Component
      */
     public function render()
     {
-        return view('components.nav-item-dashboard');
+        return view('components.img-profile');
     }
 }
