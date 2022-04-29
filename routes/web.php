@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return view('components.dashboard');
 });
+
+Route::get('/pembelian', [\App\Http\Controllers\PembelianController::class, 'index']);
