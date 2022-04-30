@@ -21,12 +21,12 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <x-nav-item-drop-down title="Components" icon="fas fa-fw fa-cog" data-target="#collapseTwo"/>
+        <x-nav-item-drop-down title="Petani" icon="fas fa-fw fa-cog" data-target="#collapseTwo"/>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <x-nav-item-drop-down-title title="Custom Components:"/>
-                <x-nav-item-drop-down-menu title="Buttons" href="#"/>
-                <x-nav-item-drop-down-menu title="Cards" href="#"/>
+                <x-nav-item-drop-down-title title="Petani"/>
+                <x-nav-item-drop-down-menu title="Petani" href="{{ route('petani.index') }}"/>
+                <x-nav-item-drop-down-menu title="Panen" href="{{ route('panen.index') }}"/>
             </div>
         </div>
     </li>
