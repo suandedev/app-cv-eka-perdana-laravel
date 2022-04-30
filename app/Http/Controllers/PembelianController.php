@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pembelian;
 use App\Http\Requests\StorePembelianRequest;
 use App\Http\Requests\UpdatePembelianRequest;
+use App\Models\Petani;
 
 class PembelianController extends Controller
 {
@@ -16,7 +17,8 @@ class PembelianController extends Controller
     public function index()
     {
         //
-        return view('components.insert-pembelian');
+        $data['petanis'] = Petani::all();
+        return view('components.index-pembelian', $data);
     }
 
     /**
@@ -27,6 +29,7 @@ class PembelianController extends Controller
     public function create()
     {
         //
+        return view('components.create-pembelian');
     }
 
     /**
@@ -38,6 +41,15 @@ class PembelianController extends Controller
     public function store(StorePembelianRequest $request)
     {
         //
+        $request->validate([
+            'petani_name' => 'required|string|max:255',
+            'rice_kind' => 'required|string|max:100',
+        ]);
+        Petani::create([
+            'petani_name' => $request['petani_name'],
+            'rice_kind' => $request['rice_kind'],
+            'total' => 0,
+        ]);
     }
 
     /**
