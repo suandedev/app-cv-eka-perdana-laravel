@@ -27,6 +27,7 @@
                 <x-nav-item-drop-down-title title="Petani"/>
                 <x-nav-item-drop-down-menu title="Petani" href="{{ route('petani.index') }}"/>
                 <x-nav-item-drop-down-menu title="Panen" href="{{ route('panen.index') }}"/>
+                <x-nav-item-drop-down-menu title="Jenis Padi" href="{{ route('kind.index') }}"/>
             </div>
         </div>
     </li>

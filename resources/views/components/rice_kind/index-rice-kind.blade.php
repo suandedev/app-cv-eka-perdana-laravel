@@ -5,7 +5,7 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Panen</h1>
+        <h1 class="h3 mb-2 text-gray-800">jenis padi</h1>
 
         @if (session('success'))
             <div class="alert alert-success" role="alert">
@@ -16,8 +16,8 @@
     <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Daftar Panen</h6>
-                <a href="{{ route('panen.create') }}" class="btn btn-sm btn-primary mt-4">
+                <h6 class="m-0 font-weight-bold text-primary">Daftar jenis padi</h6>
+                <a href="{{ route('kind.create') }}" class="btn btn-sm btn-primary mt-4">
                     <i class="fas fa-plus"></i> Baru
                 </a>
             </div>
@@ -27,8 +27,7 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Nama Petani</th>
-                            <td>tangal</td>
+                            <th>jenis padi</th>
                             <th>aksi</th>
                         </tr>
                         </thead>
@@ -36,20 +35,18 @@
                         <tr>
                             <th>#</th>
                             <th>Nama Petani</th>
-                            <td>tangal</td>
                             <th>aksi</th>
                         </tr>
                         </tfoot>
                         <tbody>
-                        @foreach($panens as $panen)
+                        @foreach($rice_kinds as $rice_kind)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $panen->weight }}</td>
-                                <td>{{ $panen->created_at->diffForHumans() }}</td>
+                                <td>{{ $rice_kind->rice_kind }}</td>
                                 <td>
-                                    <a href="{{route('panen.edit', $panen->id)}}" class="btn btn-sm btn-success"><i
+                                    <a href="{{route('kind.edit', $rice_kind->id)}}" class="btn btn-sm btn-success"><i
                                             class="fas fa-eye"></i> detail</a>
-                                    <form action="{{route('panen.destroy', $panen->id)}}" method="post"
+                                    <form action="{{route('kind.destroy', $rice_kind->id)}}" method="post"
                                           class="float-left">
                                         @csrf
                                         @method('DELETE')

@@ -24,6 +24,7 @@ Route::get('/test', function () {
 Route::resource('pembelian', \App\Http\Controllers\PembelianController::class );
 Route::resource('petani', \App\Http\Controllers\PetaniController::class );
 Route::resource('panen', \App\Http\Controllers\PanenController::class);
+Route::resource('kind', \App\Http\Controllers\RiceKindController::class);
 
 Route::get('x', function () {
    \App\Models\Petani::create([

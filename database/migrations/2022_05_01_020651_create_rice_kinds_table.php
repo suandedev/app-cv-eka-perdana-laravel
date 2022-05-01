@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('panens', function (Blueprint $table) {
+        Schema::create('rice_kinds', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('petani_id');
-            $table->foreignId('rice_kind_id');
-            $table->integer('weight');
+            $table->string('rice_kind');
             $table->timestamps();
         });
     }
@@ -29,7 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('panens');
+        Schema::dropIfExists('rice_kinds');
     }
 };
-;

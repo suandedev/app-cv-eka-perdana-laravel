@@ -37,7 +37,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $petani->petani_name }}</td>
-                            <td>{{ $petani->rice_kind }}</td>
+                            <td>{{ $petani->panens->rice_kind }}</td>
                         </tr>
                         @endforeach
                         </tbody>

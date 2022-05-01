@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Panen;
 use App\Http\Requests\StorePanenRequest;
 use App\Http\Requests\UpdatePanenRequest;
+use App\Models\Petani;
 
 class PanenController extends Controller
 {
@@ -16,7 +17,7 @@ class PanenController extends Controller
     public function index()
     {
         //
-        $panens = Panen::all();
+        $panens = collect(Panen::all())->sortDesc()->values()->all();
         return view('components.panen.index-panen', compact('panens'));
     }
 
@@ -28,7 +29,8 @@ class PanenController extends Controller
     public function create()
     {
         //
-        return view('components.panen.create-panen');
+        $petanis = Petani::all();
+        return view('components.panen.create-panen', compact('petanis'));
     }
 
     /**
@@ -41,13 +43,16 @@ class PanenController extends Controller
     {
         //
         $request->validate([
+            'petani_id' => 'required|numeric',
+            'rice_kind_id' => 'required|numeric',
             'weight' => 'required|numeric',
         ]);
         Panen::create([
-            'petani_id' => 1,
+            'petani_id' => $request['petani_id'],
             'weight' => $request['weight'],
         ]);
-        return redirect()->route('panen.index')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->back();
+//        return redirect()->route('panen.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**

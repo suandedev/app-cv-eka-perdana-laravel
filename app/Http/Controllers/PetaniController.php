@@ -16,7 +16,7 @@ class PetaniController extends Controller
     public function index()
     {
         //
-        $data['petanis'] = Petani::all();
+        $data['petanis'] = collect(Petani::all())->sortDesc()->values()->all();
         return view('components.petani.index-petani', $data);
     }
 
