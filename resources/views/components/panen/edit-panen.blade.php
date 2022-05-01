@@ -26,6 +26,22 @@
             @csrf
             @method('PUT')
             <div class="form-group">
+                <select name="petani_id" class="custom-select custom-select-sm">
+                    <option selected value="{{ old('petani_id') }}">--pilih petani--</option>
+                    @foreach($petanis as $petani)
+                        <option value="{{$petani->id}}" {{ ($petani->id = $panen->petani_id) ? 'selected="selected"' : '' }}>{{$petani->petani_name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <select name="rice_kind" class="custom-select custom-select-sm">
+                        <option selected value="{{ old('rice_kind') }}">--pilih jenis padi--</option>
+                    @foreach($rice_kinds as $rice_kind)
+                            <option value="{{ $rice_kind->id }}" {{ ($rice_kind->id = $panen->rice_kind_id) ? 'selected="selected"' : '' }}>{{$rice_kind->rice_kind}}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <input name="weight" type="text" class="form-control form-control-user"
                        id="weight"
                        value="{{ $panen->weight }}"

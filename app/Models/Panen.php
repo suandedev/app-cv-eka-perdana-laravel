@@ -9,12 +9,12 @@ class Panen extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['petani_id', 'rice_kind', 'weight'];
+    protected $fillable = ['petani_id', 'rice_kind_id', 'weight'];
 
-    public function petani() {
+    public function petanis() {
         return $this->belongsTo(Petani::class);
     }
-    public function RiceKinds() {
+    public function kind() {
         return $this->hasMany(RiceKind::class);
     }
 }

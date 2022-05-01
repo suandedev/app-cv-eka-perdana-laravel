@@ -29,13 +29,12 @@ Route::resource('kind', \App\Http\Controllers\RiceKindController::class);
 Route::get('x', function () {
    \App\Models\Petani::create([
        'petani_name' => 'wayan x',
-       'rice_kind' => 'cierang',
-       'total' => 12.9
    ]);
 });Route::get('y', function () {
    \App\Models\Panen::create([
        'petani_id' => 1,
-       'weight' => 91
+       'rice_kind_id' => 1,
+       'weight' => 91,
    ]);
 });
 Route::get('c', function () {

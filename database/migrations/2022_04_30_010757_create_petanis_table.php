@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('petanis', function (Blueprint $table) {
             $table->id();
+//            $table->foreignId('rice_kind_id');
             $table->string('petani_name');
             $table->timestamps();
         });

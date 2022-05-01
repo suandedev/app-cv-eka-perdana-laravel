@@ -10,4 +10,8 @@ class RiceKind extends Model
     use HasFactory;
 
     protected $fillable = ['rice_kind'];
+
+    public function kinds() {
+        return $this->hasMany(Panen::class);
+    }
 }

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Panen;
 use App\Models\Pembelian;
 use App\Http\Requests\StorePembelianRequest;
 use App\Http\Requests\UpdatePembelianRequest;
 use App\Models\Petani;
+use App\Models\RiceKind;
 
 class PembelianController extends Controller
 {
@@ -17,8 +19,8 @@ class PembelianController extends Controller
     public function index()
     {
         //
-        $data['petanis'] = Petani::all();
-        return view('components.index-pembelian', $data);
+        $petanis = collect(Petani::all())->sortDesc()->values()->all();
+        return view('components.index-pembelian', compact('petanis'));
     }
 
     /**
@@ -58,9 +60,13 @@ class PembelianController extends Controller
      * @param  \App\Models\Pembelian  $pembelian
      * @return \Illuminate\Http\Response
      */
-    public function show(Pembelian $pembelian)
+    public function show($id)
     {
         //
+        $petani = Petani::find($id);
+        $panens = Petani::find($id)->panens;
+        $kind = RiceKind::find($id)->kinds;
+        return view('components.pembelian.show-pembelian', compact( 'kind','panens', 'petani'));
     }
 
     /**

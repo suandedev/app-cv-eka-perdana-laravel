@@ -28,6 +28,7 @@
                 <x-nav-item-drop-down-menu title="Petani" href="{{ route('petani.index') }}"/>
                 <x-nav-item-drop-down-menu title="Panen" href="{{ route('panen.index') }}"/>
                 <x-nav-item-drop-down-menu title="Jenis Padi" href="{{ route('kind.index') }}"/>
+                <x-nav-item-drop-down-menu title="Pembelian" href="{{ route('pembelian.index') }}"/>
             </div>
         </div>
     </li>

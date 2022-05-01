@@ -6,6 +6,7 @@ use App\Models\Panen;
 use App\Http\Requests\StorePanenRequest;
 use App\Http\Requests\UpdatePanenRequest;
 use App\Models\Petani;
+use App\Models\RiceKind;
 
 class PanenController extends Controller
 {
@@ -30,7 +31,8 @@ class PanenController extends Controller
     {
         //
         $petanis = Petani::all();
-        return view('components.panen.create-panen', compact('petanis'));
+        $rice_kinds = RiceKind::all();
+        return view('components.panen.create-panen', compact('petanis', 'rice_kinds'));
     }
 
     /**
@@ -43,12 +45,13 @@ class PanenController extends Controller
     {
         //
         $request->validate([
-            'petani_id' => 'required|numeric',
-            'rice_kind_id' => 'required|numeric',
+            'petani_id' => 'numeric',
+            'rice_kind' => 'numeric',
             'weight' => 'required|numeric',
         ]);
         Panen::create([
             'petani_id' => $request['petani_id'],
+            'rice_kind_id' => $request['rice_kind'],
             'weight' => $request['weight'],
         ]);
         return redirect()->back();
@@ -75,7 +78,9 @@ class PanenController extends Controller
     public function edit(Panen $panen)
     {
         //
-        return view('components.panen.edit-panen', compact('panen'));
+        $petanis = Petani::all();
+        $rice_kinds = RiceKind::all();
+        return view('components.panen.edit-panen', compact('panen', 'petanis', 'rice_kinds'));
     }
 
     /**
