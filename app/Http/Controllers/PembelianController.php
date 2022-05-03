@@ -102,4 +102,11 @@ class PembelianController extends Controller
     {
         //
     }
+
+    public function cetak_pdf($id = null)
+    {
+        $panen = Panen::all();
+        $pdf = PDF::loadview('components.report.petani-pdf', ['panen'=>$panen]);
+        return $pdf->download('laporan-pegawai-pdf.pdf');
+    }
 }
